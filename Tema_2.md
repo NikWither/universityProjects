@@ -103,7 +103,6 @@ print(first, second, third)
 ```
 
 ### Результат
-
 ![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/LAB5.jpg)
 
 ### Выводы
