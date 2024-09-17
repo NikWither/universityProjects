@@ -88,7 +88,7 @@ print(str(pr3))
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/LAB4.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/ЛАБ3.jpg)
 
 ### Выводы
 
@@ -103,7 +103,7 @@ print(first, second, third)
 ```
 
 ### Результат
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/LAB5.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/ЛАБ5.jpg)
 
 ### Выводы
 
@@ -121,7 +121,7 @@ print("Нахождение остатка от деления:", a % b)
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/LAB6.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/ЛАБ6.jpg)
 
 ### Выводы
 
@@ -135,7 +135,7 @@ print(string * 10)
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/LAB7.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/ЛАБ7.jpg)
 
 ### Выводы
 
@@ -149,7 +149,7 @@ print(string.count('о'))
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/LAB8.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/ЛАБ8.jpg)
 
 ### Выводы
 
@@ -162,7 +162,7 @@ print("Hello\nWorld")
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/LAB9.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/ЛАБ9.jpg)
 
 ### Выводы
 
@@ -178,7 +178,7 @@ print(s[:5])
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/LAB10.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_2/pic/ЛАБ10.jpg)
 
 ### Выводы
 
