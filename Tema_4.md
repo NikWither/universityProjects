@@ -276,7 +276,7 @@ if __name__ == '__main__':  # точка входа
 
 ### Результат
 
-![Меню](https://github.com/golonr1na/Software_Engineering_python/blob/Тема_4/pictures/s1.png)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_4/pic/CP1.jpg)
 
 ### Выводы
 
@@ -312,7 +312,7 @@ if __name__ == '__main__':
 
 ### Результат
 
-![Меню](https://github.com/golonr1na/Software_Engineering_python/blob/Тема_4/pictures/s2.png)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_4/pic/CP2.jpg)
 
 ### Выводы
 
@@ -340,7 +340,7 @@ for i in range(5):
 
   ### Результат
 
-![Меню](https://github.com/golonr1na/Software_Engineering_python/blob/Тема_4/pictures/s3.png)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_4/pic/CP3.jpg)
 
 ### Выводы
 
@@ -371,7 +371,7 @@ if __name__ == "__main__":
 
 ### Результат
 
-![Меню](https://github.com/golonr1na/Software_Engineering_python/blob/Тема_4/pictures/s4.png)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_4/pic/CP4.jpg)
 
 ### Выводы
 
@@ -402,7 +402,7 @@ def triangleWithGeron(a, b, c):
 
 ### Результат
 
-![Меню](https://github.com/golonr1na/Software_Engineering_python/blob/Тема_4/pictures/s5.png)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_4/pic/CP5.jpg)
 
 ### Выводы
 
