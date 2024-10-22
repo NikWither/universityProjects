@@ -286,7 +286,7 @@ def calculate_total_expenses(filename):
         with open(filename, 'r', encoding='utf-8') as file:
             for line in file:
                 _, _, amount = line.strip().split(',')
-                total += float(amount)  # Суммируем расходы
+                total += int(amount)  # суммирую расходы
         print(f"\nОбщая сумма расходов: {total:.2f} руб.\n")
     except FileNotFoundError:
         print("Записей о расходах пока нет.")
@@ -322,7 +322,17 @@ if __name__ == "__main__":
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_6/pic/cp2.jpg)
+## Добавление расхода (пункт 1), а также пример ввода данных.
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/cp2.jpg)
+
+## Вывод всех расходов (лист (пункт 2)).
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/cp2_1.jpg)
+
+## Подсчет всех расходов (пункт 3). Дополнительный пункт
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/cp2_2.jpg)
+
+## Выход из прогарммы (пункт 4).
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/cp2_3.jpg)
 
 ### Выводы
 
@@ -351,37 +361,33 @@ if __name__ == "__main__":
 ### 4 lines
 
 ```python
-def findTop3FrequentNumbers(number_string):
-    number_counts = {}
+def text_statistics(filename):
+    letters_count = 0
+    words_count = 0
+    lines_count = 0
     
-    for char in number_string:
-        number = int(char) 
-        if number in number_counts:
-            number_counts[number] += 1 
-        else:
-            number_counts[number] = 1
-    
-    sorted_counts = sorted(number_counts.items(), key=lambda item: item[1], reverse=True)
+    with open(filename, 'r', encoding='utf-8') as file:
+        for line in file:
+            lines_count += 1 
+            words_count += len(line.split()) 
+            
+            letters = [char for char in line if char.isalpha()]
+            letters_count += len(letters)
 
-    top_3_counts = sorted_counts[:3]
-    
-    top_3_sorted = sorted(top_3_counts, key=lambda item: item[0])
-    
-    top_3_dict = {num: count for num, count in top_3_sorted}
-    
-    return top_3_dict
+    print(f"{letters_count} letters")
+    print(f"{words_count} words")
+    print(f"{lines_count} lines")
 
-number_string_1 = '123456789123455555'
-number_string_2 = '1234567890'
-number_string_3 = '111111111222222223333333344444444444444444444444444'
-print(f"Тест со строкой: {number_string_1}\nРезультат: {findTop3FrequentNumbers(number_string_1)}")
-print(f"Тест со строкой: {number_string_2}\nРезультат: {findTop3FrequentNumbers(number_string_2)}")
-print(f"Тест со строкой: {number_string_3}\nРезультат: {findTop3FrequentNumbers(number_string_3)}")
+text_statistics('example.txt')
+
 ```
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_6/pic/cp3.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/cp3.jpg)
+
+## txt файл
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/code/example.txt)
 
 ### Выводы
 
@@ -389,59 +395,12 @@ print(f"Тест со строкой: {number_string_3}\nРезультат: {fi
 строке из цифр. Увеличиваем счетчик каждого значения по ключу в словаре. Затем преобразуем словарь в список кортежей (ключ, значение) и сортируем по количеству (значению) с помощью lambda функции. После применяем встроенную сортировку и срез, сставляя только три самых частых числа. Затем снова сортируем по ключам (числам) в порядке возрастания, потом преобразовываем в словарь.
   
 ## Самостоятельная работа №4
-### Никто не любит получать плохие оценки, поэтому Борис решил это исправить. Допустим, что все оценки студента за семестр хранятся в одном списке. Ваша задача удалить из этого списка все двойки, а все
-### Ваш хороший друг владеет офисом со входом по электронным картам, ему нужно чтобы вы написали программу, которая показывала в каком порядке сотрудники входили и выходили из
-### офиса. Определение сотрудника происходит по id. Напишите функцию, которая на вход принимает кортеж и случайный элемент (id), его можно придумать самостоятельно. Требуется вернуть
-### новый кортеж, начинающийся с первого появления элемента в нем и заканчивающийся вторым его появлением включительно. Если элемента нет вовсе – вернуть пустой кортеж. 
-### Если элемент встречается только один раз, то вернуть кортеж, который начинается с него и идет до конца исходного.
-### Входные данные:
-### (1, 2, 3), 8)
-### (1, 8, 3, 4, 8, 8, 9, 2), 8)
-### (1, 2, 8, 5, 1, 2, 9), 8)
-### Ожидаемый результат:
-### ()
-### (8, 3, 4, 8)
-### (8, 5, 1, 2, 9)
   
 ```python
-def transformToList(tpl):
-    return (tpl.split('),')[0])[1:].split(', ')
 
-def getFinderElement(tpl):
-    return str(tpl[-2])
-
-def findEmployer(tplForUpdate):
-    lst = transformToList(tplForUpdate)
-    finderElement = getFinderElement(tplForUpdate)
-    if lst.count(finderElement) == 0:
-        return ()
-    if lst.count(finderElement) == 1:
-        newArray = lst[lst.index(finderElement):]
-        return tuple(list(map(int, newArray)))
-    else:
-        count = 0
-        startAndEndEmployer = ''
-        for i in range(len(lst)):
-            if lst[i] == finderElement and count != 2:
-                count += 1
-                startAndEndEmployer += str(i)
-        startJob = int(startAndEndEmployer[0])
-        endJob = int(startAndEndEmployer[1])
-        newArray = lst[startJob:endJob + 1]
-        return tuple(list(map(int, newArray)))
-    
-tpl_1 = '(1, 2, 3), 8)'
-tpl_2 = '(1, 8, 3, 4, 8, 8, 9, 2), 8)'
-tpl_3 = '(1, 2, 8, 5, 1, 2, 9), 8)'
-        
-print(f"\nРезультат: {findEmployer(tpl_1)}")
-print(f"\nРезультат: {findEmployer(tpl_2)}")
-print(f"\nРезультат: {findEmployer(tpl_3)}")
 ```
 
 ### Результат
-
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_6/pic/cp4.jpg)
 
 ### Выводы
 
@@ -457,47 +416,41 @@ print(f"\nРезультат: {findEmployer(tpl_3)}")
 ### Самостоятельно придумайте и решите задачу, которая будет взаимодействовать с текстовым файлом.
 
 ```python
-def analyze_grades(students_grades):
-    
-    total_grades = 0 # сумма всех баллов
+def sum_integers_in_file(filename):
+    total_sum = 0
 
-    # проходимся по каждому студенту
-    for student in students_grades:
-        # из каждого элемента (кортежа) забираем балл студента
-        name, grade = student
-        
-        total_grades += grade
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            for line in file:
+                for word in line.split():
+                    try:
+                        number = int(word)
+                        total_sum += number
+                    except ValueError:
+                        continue 
 
-    average_grade = total_grades / len(students_grades) # поиск ср. арф. балла
-    
-    above_average_students = [] # студенты, чьи баллы выше ср. арф.
-    for student in students_grades:
-        name, grade = student
-        
-        if grade > average_grade:
-            # если балл выше ср. арф., добавляем имя студента в новый список
-            above_average_students.append(name)
+        print(f"Сумма найденных чисел: {total_sum}")
 
-    count_above_average = len(above_average_students)
+    except FileNotFoundError:
+        print("Файл не найден")
 
-    return (above_average_students, average_grade, count_above_average)
+if __name__ == "__main__":
+    sum_integers_in_file('grades.txt')
 
-# Тест 1
-students_grades_1 = [("Nikita", 85), ("Oleg", 70), ("Tamara", 95), ("Svetlana", 80)]
-print(analyze_grades(students_grades_1))
 
-# Тест 2
-students_grades_2 = [("Valentina", 60), ("Durak", 65), ("Bob", 70), ("Kopatich", 75)]
-print(analyze_grades(students_grades_2))
-
-# Тест 3
-students_grades_3 = [("Крош", 100), ("Ёжик", 90), ("Змей Горыныч", 80), ("какой-то мужик", 70), ("чувак", 60)]
-print(analyze_grades(students_grades_3)) 
 ```
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_6/pic/cp5.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/cp5.jpg)
+
+
+# Файл с цифрами
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/cp5_1.jpg)
+
+# txt файл
+
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/code/grades.txt)
 
 ### Выводы
 
