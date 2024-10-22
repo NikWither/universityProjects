@@ -27,7 +27,7 @@
 
 ### Результат.
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/pic/lab1.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/lab1.jpg)
 
 ## Лабораторная работа №2
 
@@ -41,7 +41,7 @@ f.close()
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/pic/lab2.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/lab2.jpg)
 
 ## Лабораторная работа №3
 
@@ -55,7 +55,7 @@ f.close()
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/pic/lab3.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/lab3.jpg)
 
   
 ## Лабораторная работа №4
@@ -71,7 +71,7 @@ with open('input.txt') as f:
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/pic/lab4.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/lab4.jpg)
 
 
 ## Лабораторная работа №5
@@ -86,7 +86,7 @@ with open('input.txt') as f:
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/pic/lab5.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/lab5.jpg)
 
 ## Лабораторная работа №6
 
@@ -105,7 +105,7 @@ with open('input.txt', 'r') as f:
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/pic/lab6.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/lab6.jpg)
 
 ## Лабораторная работа №7
 
@@ -122,7 +122,7 @@ with open('input.txt', 'w') as f:
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/pic/lab7.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/lab7.jpg)
 
 ## Лабораторная работа №8
 
@@ -145,7 +145,7 @@ print_docs('C:\PHP8')
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/pic/lab8.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/lab8.jpg)
 
 ## Лабораторная работа №9
 
@@ -171,7 +171,7 @@ print(longest_words('input.txt'))
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/pic/lab9.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/lab9.jpg)
 
 ## Лабораторная работа №10
 
@@ -196,7 +196,7 @@ with open('rows_300.csv', 'w', encoding='utf-8', newline='') as f:
 
 ### Результат
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/pic/lab10.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/lab10.jpg)
 
 
 ## Самостоятельная работа №1
@@ -205,21 +205,46 @@ with open('rows_300.csv', 'w', encoding='utf-8', newline='') as f:
 ### будет: скриншот файла со статьей, листинг кода, и вывод в консоль, в котором будет указана вся необходимая информация.
 
 ```python
-numbers = input()
-lst = numbers.split(' ')
-tpl = tuple(lst)
-print('Список', lst, '\n', 'Кортеж', tpl)
+def count_words(filename):
+
+    most_common_word = 0
+    max_count = 0
+
+    with open(filename, 'r', encoding='utf-8') as file:
+        text = file.read().lower()
+
+    words = text.split()
+
+    word_count = {}
+    
+    for word in words:
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+
+    for word, count in word_count.items():
+        if count > max_count:
+            max_count = count
+            most_common_word = word
+    
+    print(f'Количество слов: {len(words)}')
+    print(f'Самое часто встречающееся слово: "{most_common_word}", встречается {max_count} раз')
+
+if __name__ == '__main__':
+    count_words('DigitalRuble')
+
 ```
 
 ### Результат
 
 ## Консоль
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/pic/cp1.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/cp1.jpg)
 
 ## Текст
 
-![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/pic/cp1_text.jpg)
+![Меню](https://github.com/NikWither/universityProjects/blob/Тема_7/img/cp1_text.jpg)
 
 ### Выводы
 
@@ -227,43 +252,72 @@ print('Список', lst, '\n', 'Кортеж', tpl)
 Для конвертации в кортеж воспользуемся функцией tuple(), куда положим уже готовый массив.
  
 ## Самостоятельная работа №2
-### На физкультуре студенты сдавали бег, у преподавателя физкультуры
-### Николай знает, что кортежи являются неизменяемыми, но он очень упрямый и всегда хочет доказать, что он прав. Студент решил создать функцию, которая будет удалять первое появление
-### определенного элемента из кортежа по значению и возвращать кортеж без него. Попробуйте повторить шедевр не признающего
-### авторитеты начинающего программиста. Но учтите, что Николай не всегда уверен в наличии элемента в кортеже (в этом случае кортеж
-### вернется функцией в исходном виде).
-### Входные данные:
-### (1, 2, 3), 1)
-### (1, 2, 3, 1, 2, 3, 4, 5, 2, 3, 4, 2, 4, 2), 3)
-### (2, 4, 6, 6, 4, 2), 9)
-### Ожидаемый результат:
-### (2, 3)
-### (1, 2, 1, 2, 3, 4, 5, 2, 3, 4, 2, 4, 2)
-### (2, 4, 6, 6, 4, 2)
+### У вас появилась потребность в ведении книги расходов, посмотрев все существующие варианты вы пришли к выводу что вас ничего не
+### устраивает и нужно все делать самому. Напишите программу для учета расходов. Программа должна позволять вводить информацию
+### о расходах, сохранять ее в файл и выводить существующие данные в консоль. Ввод информации происходит через консоль. Результатом
+### выполнения задачи будет: скриншот файла с учетом расходов, листинг кода, и вывод в консоль, с демонстрацией работоспособности программы.
        
 ```python
-tpl_1 = '(1, 2, 3), 1)'
-tpl_2 = '(1, 2, 3, 1, 2, 3, 4, 5, 2, 3, 4, 2, 4, 2), 3)'
-tpl_3 = '(2, 4, 6, 6, 4, 2), 9)'
+def add_expense(filename):
+    date = input("Введите дату расхода (в формате ДД.ММ.ГГГГ): ")
+    category = input("Введите категорию расхода: ")
+    amount = input("Введите сумму расхода: ")
 
-def remove_element(tplForUpdate):
-    lst = transformToList(tplForUpdate)
-    finderElement = getFinderElement(tplForUpdate)
-    if finderElement in lst:
-        lst.remove(finderElement)
-        return tuple(list(map(int, lst)))
-    else:
-        return tuple(list(map(int, lst)))
+    with open(filename, 'a', encoding='utf-8') as file:
+        file.write(f"{date},{category},{amount}\n")
+    
+    print("Расход добавлен!")
 
-def transformToList(tpl):
-    return (tpl.split('),')[0])[1:].split(', ')
 
-def getFinderElement(tpl):
-    return str(tpl[-2])
+def view_expenses(filename):
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            print("\nТекущие расходы:")
+            for line in file:
+                date, category, amount = line.strip().split(',')
+                print(f"Дата: {date}, Категория: {category}, Сумма: {amount} руб.")
+        print()
+    except FileNotFoundError:
+        print("Записей о расходах пока нет.")
 
-print(f"Первый тест с массивом {tpl_1}, \nрезультат: {remove_element(tpl_1)}\n")
-print(f"Второй тест с массивом {tpl_2}, \nрезультат: {remove_element(tpl_2)}\n")
-print(f"Третий тест с массивом {tpl_3}, \nрезультат: {remove_element(tpl_3)}")
+def calculate_total_expenses(filename):
+    total = 0
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            for line in file:
+                _, _, amount = line.strip().split(',')
+                total += float(amount)  # Суммируем расходы
+        print(f"\nОбщая сумма расходов: {total:.2f} руб.\n")
+    except FileNotFoundError:
+        print("Записей о расходах пока нет.")
+
+def main():
+    filename = "expenses.txt"
+    
+    while True:
+        print("\nМеню:")
+        print("1. Добавить расход")
+        print("2. Просмотреть все расходы")
+        print("3. Посчитать все расходы")
+        print("4. Выход")
+        
+        choice = input("Выберите действие (1-4): ")
+        
+        if choice == '1':
+            add_expense(filename)
+        elif choice == '2':
+            view_expenses(filename)
+        elif choice == '3':
+            calculate_total_expenses(filename)
+        elif choice == '4':
+            print("Программа завершена.")
+            break
+        else:
+            print("Неверный выбор. Попробуйте снова.")
+
+if __name__ == "__main__":
+    main()
+
 ```
 
 ### Результат
@@ -284,10 +338,17 @@ print(f"Третий тест с массивом {tpl_3}, \nрезультат:
   
 ## Самостоятельная работа №3
 ### Ребята поспорили кто из них одним нажатием на numpad наберет больше повторяющихся цифр, но не понимают, как узнать
-### победителя. Вам им нужно в этом помочь. Дана строка в виде случайной последовательности чисел от 0 до 9 (длина строки
-### минимум 15 символов). Требуется создать словарь, который в качестве ключей будет принимать данные числа (т. е. ключи будут
-### типом int), а в качестве значений – количество этих чисел в имеющейся последовательности. Для построения словаря создайте
-### функцию, принимающую строку из цифр. Функция должна возвратить словарь из 3-х самых часто встречаемых чисел, также эти значения нужно вывести в порядке возрастания ключа.
+### Имеется файл input.txt с текстом на латинице. Напишите программу, которая выводит следующую статистику по тексту: количество букв ### латинского алфавита; число слов; число строк
+### · Текст в файле:
+### Beautiful is better than ugly.
+### Explicit is better than implicit.
+### Simple is better than complex.
+### Complex is better than complicated.
+### · Ожидаемый результат:
+### Input file contains:
+### 108 letters
+### 20 words
+### 4 lines
 
 ```python
 def findTop3FrequentNumbers(number_string):
@@ -393,12 +454,7 @@ print(f"\nРезультат: {findEmployer(tpl_3)}")
   
 ## Самостоятельная работа №5
 
-### Самостоятельно придумайте и решите задачу, в которой будут обязательно использоваться кортеж или список. Проведите минимум три теста для проверки работоспособности вашей задачи.
-### Задача сгенерирована с помощью ChatGPT 4.0 (воображение временно отдыхает)
-### Напишите функцию, которая принимает список студентов с их оценками и возвращает кортеж, содержащий:
-### Список студентов, которые получили оценки выше среднего.
-### Среднюю оценку по всем студентам.
-### Количество студентов, получивших оценки выше среднего.
+### Самостоятельно придумайте и решите задачу, которая будет взаимодействовать с текстовым файлом.
 
 ```python
 def analyze_grades(students_grades):
